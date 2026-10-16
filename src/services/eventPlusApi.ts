@@ -1,3 +1,6 @@
+import { Axios } from "axios";
+import type { Presenca } from "../types/api";
+
 export type EventoApi = {
   idEvento: string;
   nomeEvento: string;
@@ -71,3 +74,19 @@ export const eventPlusApi = {
       body: JSON.stringify({ idEvento, idUsuario, situacao: true }),
     }),
 };
+
+export const presencaService = {
+    async listarporUsuario(idUsuario: string){
+        const { data } = await axiosInstance.get<Presenca[]>(Presenca/usuario/${idUsuario});
+        return data;
+    },
+
+    async cadastrar(payload: PresencaPayload) {
+        const { data } = await axiosInstance.post<Presenca>("/Presenca", payload);
+        return data;
+    },
+
+    async excluir(id: string){
+        await axiosInstance.delete(Presenca/${id});
+    }
+}
