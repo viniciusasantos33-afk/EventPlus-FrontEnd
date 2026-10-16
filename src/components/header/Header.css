@@ -1,0 +1,90 @@
+/* Reset básico e Variáveis */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --cinza-claro: #ded9da;
+    --branco: #fff;
+    --cor-texto: #171417;
+    --vermelho: #b51b44;
+}
+
+/* Header */
+.header {
+    border-bottom: 1px solid var(--cinza-claro);
+    background: var(--branco);
+}
+
+.header-conteudo {
+    width: min(1220px, calc(100% - 48px));
+    min-height: 60px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+}
+
+.header img {
+    width: 130px;
+}
+
+.header nav {
+    display: flex;
+    gap: 28px;
+}
+
+.header a {
+    color: var(--cor-texto);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.header button {
+    border: none;
+    background: none;
+    color: var(--cor-texto);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.header-conta { display: flex; align-items: center; gap: 14px; }
+.header-conta span { color: var(--cor-texto); font-weight: 500; }
+.header-conta button { color: var(--vermelho); }
+
+.login-overlay {
+    position: fixed;
+    z-index: 20;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, .45);
+}
+
+.login-modal {
+    position: relative;
+    display: grid;
+    gap: 10px;
+    width: min(100%, 400px);
+    padding: 32px;
+    border-radius: 10px;
+    background: white;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, .2);
+}
+
+.login-modal h2 { margin: 0 0 8px; }
+.login-modal label { font-size: .9rem; font-weight: 500; }
+.login-modal input { width: 100%; padding: 9px 10px; border: 1px solid #bbb; border-radius: 4px; }
+.login-modal p { margin: 0; color: #a21435; font-size: .9rem; }
+.login-modal .login-fechar { position: absolute; top: 12px; right: 16px; font-size: 1.5rem; }
+.login-modal .login-submit { margin-top: 8px; padding: 10px; border-radius: 4px; color: white; background: var(--vermelho); }
+.login-modal .login-submit:disabled { opacity: .65; }
+
+@media (max-width: 700px) {
+    .header-conteudo { flex-wrap: wrap; gap: 12px; padding: 12px 0; }
+    .header nav { order: 3; width: 100%; justify-content: space-between; gap: 12px; }
+}

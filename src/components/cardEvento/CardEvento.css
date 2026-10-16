@@ -1,0 +1,74 @@
+/* Cartão de Evento */
+.evento-card {
+    border: 1.5px solid var(--vermelho, #b51b44);
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: var(--branco, #fff);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.evento-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.evento-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
+
+.evento-card span {
+    display: inline-block;
+    align-self: center;
+    margin: 16px auto 8px auto;
+    padding: 4px 14px;
+    background-color: #dce4ff;
+    color: #3b4269;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.evento-card-info {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.evento-card h3 {
+    margin: 8px 16px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--cor-texto, #171417);
+}
+
+.evento-card p {
+    margin: 8px 24px 20px 24px;
+    font-size: 0.88rem;
+    color: #555;
+    line-height: 1.4;
+    flex-grow: 1;
+}
+
+/* Botão "Ver Evento" */
+.evento-card button {
+    background: transparent;
+    border: none;
+    color: var(--vermelho, #b51b44);
+    font-size: 0.95rem;
+    font-weight: 700;
+    padding: 8px 16px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.evento-card button:hover {
+    opacity: 0.75;
+    text-decoration: underline;
+}

@@ -1,0 +1,161 @@
+/* Reset básico e Variáveis Globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --cinza-claro: #ded9da;
+    --branco: #fff;
+    --cor-texto: #171417;
+    --vermelho: #b51b44;
+}
+
+/* Banner Principal */
+.home-banner img {
+    width: 100%;
+    max-height: 480px;
+    object-fit: cover;
+}
+
+/* Seção Visão - Fundo 100% */
+.home-visao {
+    width: 100%;
+    margin: 0;
+    padding: 64px 24px;
+    background-color: var(--vermelho);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 48px;
+}
+
+.home-visao img {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.home-visao-texto {
+    color: var(--branco);
+    max-width: 500px;
+}
+
+.home-visao-texto h1 {
+    font-size: 2rem;
+    margin-bottom: 12px;
+}
+
+.home-visao-texto p {
+    line-height: 1.6;
+}
+
+/* Seção de Eventos */
+.home-eventos {
+    width: min(1200px, calc(100% - 48px));
+    margin: 0 auto;
+    padding: 64px 0;
+}
+
+/* Título "PRÓXIMOS EVENTOS" */
+.home-eventos h2 {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--cor-texto);
+    position: relative;
+    padding-bottom: 8px;
+    margin-bottom: 40px;
+}
+
+.home-eventos h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background-color: var(--vermelho);
+}
+
+/* Grelha de Eventos */
+/* Grelha de Eventos */
+.home-eventos-lista {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr)); /* minmax(0, 1fr) força as imagens a respeitar o tamanho do cartão */
+    gap: 32px;
+}
+
+/* Seção Contato - Preenchimento 100% em vermelho */
+.home-contato {
+    width: 100%;
+    margin: 0;
+    padding: 64px 24px;
+    background-color: var(--vermelho);
+    color: var(--branco);
+}
+
+.home-contato-container {
+    width: min(1200px, calc(100% - 48px));
+    margin: 0 auto;
+}
+
+.home-contato-titulo {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.home-contato-titulo h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--branco);
+}
+
+.home-contato-titulo hr {
+    width: 80px;
+    height: 3px;
+    background-color: var(--branco);
+    border: none;
+    margin: 8px auto 0 auto;
+}
+
+.home-contato-conteudo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+}
+
+.home-contato-texto {
+    text-align: center;
+    color: var(--branco);
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.home-contato-texto p:first-child {
+    font-weight: 700;
+}
+
+.home-contato-texto a {
+    color: var(--branco);
+    text-decoration: underline;
+    font-weight: 500;
+}
+
+.home-contato-conteudo iframe {
+    width: 100%;
+    height: 320px;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}

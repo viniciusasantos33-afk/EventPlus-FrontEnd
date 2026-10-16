@@ -1,0 +1,28 @@
+.eventos-catalogo {
+  width: min(1200px, calc(100% - 48px));
+  min-height: calc(100vh - 120px);
+  margin: 0 auto;
+  padding: 56px 0 80px;
+}
+
+.eventos-catalogo h1 {
+  margin-bottom: 36px;
+  color: #171417;
+  text-align: center;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+}
+
+.eventos-catalogo-lista {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+}
+
+@media (max-width: 850px) {
+  .eventos-catalogo-lista { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 560px) {
+  .eventos-catalogo { width: min(100% - 32px, 440px); padding-top: 36px; }
+  .eventos-catalogo-lista { grid-template-columns: 1fr; }
+}

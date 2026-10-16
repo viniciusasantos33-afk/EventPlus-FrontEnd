@@ -1,0 +1,27 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+body {
+    min-width: 320px;
+    min-height: 100vh;
+    font-family: "Poppins", Arial, Helvetica, sans-serif;
+    color: #151515;
+    background-color: #f9f9f9;
+}
+
+img {
+    display: block;
+    max-height: 100%;
+}
+
+a,
+button,
+input,
+select,
+textarea {
+    font: inherit
+}
