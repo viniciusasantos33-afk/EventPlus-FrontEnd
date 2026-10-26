@@ -1,11 +1,16 @@
-import AppRoutes from './routes/AppRoutes'
+import AppRoutes from "./routes/AppRoutes";
+import { useLocation } from "react-router-dom";
 
-import './App.css'
+import "./App.css";
 
 function App() {
-  return (
-    <AppRoutes />
-  )
+    const location = useLocation();
+
+    return (
+        <div className="app-route-enter" key={location.pathname}>
+            <AppRoutes />
+        </div>
+    );
 }
 
-export default App
+export default App;

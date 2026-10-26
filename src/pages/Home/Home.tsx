@@ -1,24 +1,23 @@
-import visaoImg from "../../assets/visao-img.png"
-
-import "./Home.css"
-import Carrossel from "../../components/carrossel/Carrossel"
-import Header from "../../components/header/Header"
-import Footer from "../../components/footer/Footer"
-import CardEvento from "../../components/cardEvento/CardEvento"
-import { useNavigate } from "react-router-dom"
-import { useEffect, useState } from "react"
-import { eventPlusApi, type EventoApi } from "../../services/eventPlusApi"
+import visaoImg from "../../assets/visao-img.png";
+import "./Home.css";
+import Carrossel from "../../components/carrossel/Carrossel";
+import Header from "../../components/header/Header";
+import Footer from "../../components/footer/Footer";
+import CardEvento from "../../components/cardEvento/CardEvento";
+import { useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useEventosDestaque } from "./useEventosDestaque";
 
 function Home() {
-    const navigate = useNavigate()
-    const [eventos, setEventos] = useState<EventoApi[]>([])
-    const [erroEventos, setErroEventos] = useState("")
+    const navigate = useNavigate();
+    const location = useLocation();
+    const { eventos, erro: erroEventos } = useEventosDestaque();
 
     useEffect(() => {
-        eventPlusApi.listarEventos()
-            .then((dados) => setEventos(dados.slice(0, 3)))
-            .catch(() => setErroEventos("Não foi possível carregar os eventos. Verifique se a API e o banco estão disponíveis."))
-    }, [])
+        if (location.hash !== "#contato") return;
+
+        document.getElementById("contato")?.scrollIntoView({ behavior: "smooth" });
+    }, [location.hash]);
     return (
         <>
             <Header />
@@ -29,7 +28,10 @@ function Home() {
                     <img src={visaoImg} alt="Pessoas confraternizando" />
                     <div className="home-visao-texto">
                         <h1>Visão</h1>
-                        <p>A EventPlus organiza eventos e informações em uma interface direta, facilitando a consulta da agenda e a participação dos usuários.</p>
+                        <p>
+                            A EventPlus organiza eventos e informações em uma interface direta,
+                            facilitando a consulta da agenda e a participação dos usuários.
+                        </p>
                     </div>
                 </section>
 
@@ -38,7 +40,9 @@ function Home() {
 
                     <div className="home-eventos-lista">
                         {erroEventos && <p role="alert">{erroEventos}</p>}
-                        {!erroEventos && eventos.length === 0 && <p>Nenhum evento disponível no momento.</p>}
+                        {!erroEventos && eventos.length === 0 && (
+                            <p>Nenhum evento disponível no momento.</p>
+                        )}
                         {eventos.map((evento) => (
                             <CardEvento
                                 key={evento.idEvento}
@@ -64,7 +68,9 @@ function Home() {
                             <div className="home-contato-texto">
                                 <p>Rua Niterói, 180 – Centro</p>
                                 <p>São Caetano do Sul – SP</p>
-                                <p><a href="tel:1142252000">(11) 4225-2000</a></p>
+                                <p>
+                                    <a href="tel:1142252000">(11) 4225-2000</a>
+                                </p>
                             </div>
                             <iframe
                                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4493.463099686336!2d-46.57330458832518!3d-23.615129178674422!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5d11c031c57f%3A0x8f79f71018065a16!2sSENAI%20S%C3%A3o%20Caetano%20do%20Sul%20-%20Cyber%20e%20IA!5e1!3m2!1spt-BR!2sbr!4v1791222288177!5m2!1spt-BR!2sbr"

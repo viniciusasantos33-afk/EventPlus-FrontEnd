@@ -1,23 +1,23 @@
-SARAH BERTOLINO DOS SANTOS, Agora
-import type { ButtonHTMLAttributes } from "react";
+import type { ButtonHTMLAttributes } from 'react'
+import './Botao.css'
 
-import "./Botao.css"
-
-interface BotaoProps extends ButtonHTMLAttributes<HTMLButtonElement>{
-    texto?: string;
-    className?: string;
+interface BotaoProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+    texto?: string
 }
 
 function Botao({
     texto,
-    onClick,
-    type = "button",
-    className = "",
+    type = 'button',
+    className = '',
     ...props
 }: BotaoProps) {
+    const classes = ['botao', className].filter(Boolean).join(' ')
 
-    const classes = ["botao", className].filter(Boolean).join("");
-
+    return (
+        <button type={type} className={classes} {...props}>
+            {texto}
+        </button>
+    )
 }
 
-export default Botao;
+export default Botao

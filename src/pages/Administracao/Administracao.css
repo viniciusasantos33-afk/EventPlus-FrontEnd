@@ -1,0 +1,627 @@
+.administracao-pagina {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    background: #fff;
+}
+
+.administracao-pagina > main {
+    flex: 1;
+}
+
+.administracao-conteudo {
+    width: min(1180px, calc(100% - 48px));
+    margin: 0 auto;
+    padding: 38px 0 64px;
+}
+
+.administracao-introducao {
+    margin-bottom: 30px;
+    text-align: center;
+    animation: administracao-subir 0.55s cubic-bezier(0.2, 0.7, 0.25, 1) both;
+}
+
+.administracao-etiqueta,
+.administracao-resumo-etiqueta {
+    color: #a11d42;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.administracao-introducao h1 {
+    width: fit-content;
+    margin: 7px auto 12px;
+    color: #171417;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.administracao-introducao h1::after {
+    display: block;
+    width: 76px;
+    height: 2px;
+    margin: 8px auto 0;
+    background: #b51b44;
+    content: "";
+}
+
+.administracao-introducao > p {
+    max-width: 620px;
+    margin: 0 auto;
+    color: #62595c;
+    font-size: 0.92rem;
+    line-height: 1.6;
+}
+
+.administracao-painel {
+    overflow: hidden;
+    border: 1px solid #eee5e7;
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 8px 28px rgb(54 20 32 / 6%);
+    animation: administracao-entrar 0.6s 0.08s cubic-bezier(0.2, 0.7, 0.25, 1) both;
+}
+
+.administracao-abas {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    padding: 18px 18px 0;
+    border-bottom: 1px solid #f0e7e9;
+    background: #fff;
+}
+
+.administracao-aba {
+    position: relative;
+    display: inline-flex;
+    min-height: 58px;
+    align-items: center;
+    gap: 10px;
+    padding: 0 18px;
+    border: 0;
+    border-radius: 10px 10px 0 0;
+    background: transparent;
+    color: #71666a;
+    font: inherit;
+    font-size: 0.92rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.administracao-aba:focus-visible {
+    z-index: 1;
+}
+
+.administracao-aba-icone {
+    font-family: "Material Symbols Rounded", sans-serif;
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 1;
+    font-variation-settings:
+        "FILL" 0,
+        "wght" 400,
+        "GRAD" 0,
+        "opsz" 24;
+}
+
+.administracao-aba:hover {
+    transform: translateY(-2px);
+    color: #9f173c;
+}
+
+.administracao-aba.ativa {
+    background: #fff5f7;
+    color: #a5163d;
+}
+
+.administracao-aba.ativa::after {
+    position: absolute;
+    right: 18px;
+    bottom: -1px;
+    left: 18px;
+    height: 3px;
+    border-radius: 3px 3px 0 0;
+    background: #b51b44;
+    content: "";
+    animation: administracao-indicador 0.25s ease both;
+}
+
+.administracao-resumo-aba {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 8px;
+    padding: 24px 34px 18px;
+    text-align: center;
+    animation: administracao-subir 0.35s ease both;
+}
+
+.administracao-resumo-aba h2 {
+    margin: 4px 0 0;
+    color: #241a1e;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.administracao-resumo-aba > p {
+    max-width: 720px;
+    margin: 0;
+    color: #756a6e;
+    font-size: 0.92rem;
+    line-height: 1.55;
+    text-align: center;
+}
+
+.administracao-conteudo-aba {
+    width: 100%;
+    animation: administracao-aba-entrar 0.4s cubic-bezier(0.2, 0.7, 0.25, 1) both;
+}
+
+.administracao-conteudo-aba > .admin-usuarios-embedded,
+.administracao-conteudo-aba > .gerenciar-tipos-embedded,
+.administracao-conteudo-aba > .admin-instituicoes-embedded {
+    display: block;
+    width: 100%;
+    min-height: 0;
+    background: transparent;
+}
+
+.administracao-conteudo-aba .admin-usuarios-topo,
+.administracao-conteudo-aba .gerenciar-tipos-topo,
+.administracao-conteudo-aba .admin-instituicoes-topo {
+    width: 100%;
+    min-height: 0;
+    padding: 12px 34px 30px;
+}
+
+.administracao-conteudo-aba .admin-usuarios-conteudo {
+    grid-template-columns: minmax(220px, 0.8fr) minmax(0, 1.2fr);
+    gap: 34px;
+    width: 100%;
+    margin: 0;
+    padding: 18px 0;
+}
+
+.administracao-conteudo-aba .gerenciar-tipos-form-area {
+    grid-template-columns: minmax(220px, 0.9fr) minmax(0, 1.1fr);
+    gap: 34px;
+    width: 100%;
+    margin: 0;
+}
+
+.administracao-conteudo-aba .admin-instituicoes-form-area {
+    display: grid;
+    grid-template-columns: minmax(220px, 0.8fr) minmax(0, 1.2fr);
+    align-items: center;
+    gap: 34px;
+    width: 100%;
+    min-height: 270px;
+    animation: instituicoes-form-entrada 0.55s 0.08s cubic-bezier(0.2, 0.7, 0.25, 1) both;
+}
+
+.administracao-conteudo-aba .admin-instituicoes-form-area > img {
+    width: 100%;
+    height: 230px;
+    object-fit: contain;
+    mix-blend-mode: multiply;
+}
+
+.administracao-conteudo-aba .admin-instituicoes-formulario {
+    display: grid;
+    gap: 14px;
+}
+
+.administracao-conteudo-aba .admin-instituicoes-formulario label {
+    display: none;
+}
+
+.administracao-conteudo-aba .admin-instituicoes-formulario input {
+    width: 100%;
+    min-height: 42px;
+    padding: 8px 2px;
+    border: 0;
+    border-bottom: 1px solid #777174;
+    border-radius: 0;
+    outline-color: #b51b44;
+    background: transparent;
+    font: inherit;
+    font-size: 0.88rem;
+}
+
+.administracao-conteudo-aba .admin-instituicoes-formulario input + input {
+    margin-top: 0;
+}
+
+.administracao-conteudo-aba .admin-instituicoes-acoes {
+    display: grid;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.administracao-conteudo-aba .admin-instituicoes-acoes button {
+    min-height: 40px;
+    border: 0;
+    border-radius: 8px;
+    background: #b51b44;
+    color: #fff;
+    cursor: pointer;
+    transition:
+        transform 0.18s ease,
+        background-color 0.18s ease;
+}
+
+.administracao-conteudo-aba .admin-instituicoes-acoes button:hover:not(:disabled) {
+    transform: translateY(-1px);
+    background: #97183a;
+}
+
+.administracao-conteudo-aba .admin-instituicoes-acoes button:disabled {
+    cursor: not-allowed;
+    opacity: 0.65;
+}
+
+.administracao-conteudo-aba .admin-instituicoes-acoes .admin-instituicoes-cancelar {
+    background: #756c70;
+}
+
+.admin-instituicoes-erro,
+.admin-instituicoes-mensagem {
+    margin: 0;
+    font-size: 0.82rem;
+}
+
+.admin-instituicoes-erro {
+    color: #a31635;
+}
+
+.admin-instituicoes-mensagem {
+    color: #23663c;
+}
+
+.administracao-conteudo-aba .admin-usuarios-titulo,
+.administracao-conteudo-aba .gerenciar-tipos-titulo {
+    display: none;
+}
+
+.administracao-conteudo-aba .admin-usuarios-conteudo {
+    padding-top: 0;
+}
+
+.administracao-conteudo-aba .gerenciar-tipos-form-area {
+    min-height: 270px;
+}
+
+.administracao-conteudo-aba .gerenciar-tipos-form-area > img {
+    height: 230px;
+}
+
+.administracao-conteudo-aba .admin-usuarios-lista,
+.administracao-conteudo-aba .gerenciar-tipos-lista,
+.administracao-conteudo-aba .admin-instituicoes-lista {
+    min-height: 250px;
+    padding: 28px max(24px, calc((100% - 1160px) / 2)) 64px;
+    border-radius: 0;
+    background: #b51b44;
+    color: #fff;
+    animation: instituicoes-lista-entrada 0.55s 0.14s cubic-bezier(0.2, 0.7, 0.25, 1) both;
+}
+
+.administracao-conteudo-aba .admin-instituicoes-lista h2 {
+    width: fit-content;
+    margin: 0 auto 34px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.administracao-conteudo-aba .admin-instituicoes-lista h2::after {
+    display: block;
+    width: 150px;
+    height: 1px;
+    margin: 7px auto 0;
+    background: #fff;
+    content: "";
+}
+
+.admin-instituicoes-status {
+    margin: 36px auto;
+    color: #fff;
+    text-align: center;
+}
+
+.administracao-conteudo-aba .tabela-admin-wrap {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.administracao-conteudo-aba .tabela-admin {
+    width: 100%;
+    min-width: 560px;
+    border-collapse: collapse;
+    font-size: 0.84rem;
+    text-align: left;
+}
+
+.administracao-conteudo-aba .tabela-admin th,
+.administracao-conteudo-aba .tabela-admin td {
+    height: 54px;
+    padding: 10px 16px;
+    border-bottom: 1px solid rgb(255 255 255 / 45%);
+    vertical-align: middle;
+}
+
+.administracao-conteudo-aba .tabela-admin th {
+    font-weight: 600;
+}
+
+.administracao-conteudo-aba .tabela-admin tbody tr {
+    transition: background-color 0.18s ease;
+    animation: instituicoes-linha-entrada 0.38s cubic-bezier(0.2, 0.7, 0.25, 1) both;
+}
+
+.administracao-conteudo-aba .tabela-admin tbody tr:nth-child(2) {
+    animation-delay: 0.04s;
+}
+
+.administracao-conteudo-aba .tabela-admin tbody tr:nth-child(3) {
+    animation-delay: 0.08s;
+}
+
+.administracao-conteudo-aba .tabela-admin tbody tr:nth-child(4) {
+    animation-delay: 0.12s;
+}
+
+.administracao-conteudo-aba .tabela-admin tbody tr:hover {
+    background: rgb(255 255 255 / 8%);
+}
+
+@keyframes instituicoes-form-entrada {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes instituicoes-lista-entrada {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes instituicoes-linha-entrada {
+    from {
+        opacity: 0;
+        transform: translateY(7px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.administracao-conteudo-aba .tabela-admin-coluna-acao {
+    width: 88px;
+    text-align: center;
+}
+
+.administracao-conteudo-aba .tabela-admin-acao {
+    display: inline-grid;
+    width: 36px;
+    height: 36px;
+    place-items: center;
+    border: 0;
+    border-radius: 7px;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    transition:
+        background-color 0.18s ease,
+        transform 0.18s ease;
+}
+
+.administracao-conteudo-aba .tabela-admin-acao:hover,
+.administracao-conteudo-aba .tabela-admin-acao:focus-visible {
+    transform: translateY(-1px);
+    background: rgb(255 255 255 / 16%);
+}
+
+.administracao-conteudo-aba .tabela-admin-icone {
+    font-family: "Material Symbols Rounded", sans-serif;
+    font-size: 1.2rem;
+    font-variation-settings:
+        "FILL" 0,
+        "wght" 400,
+        "GRAD" 0,
+        "opsz" 24;
+}
+
+.administracao-carregando {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    color: #65595e;
+}
+
+.administracao-spinner {
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgb(181 27 68 / 20%);
+    border-top-color: #b51b44;
+    border-radius: 50%;
+    animation: administracao-girar 0.8s linear infinite;
+}
+
+@keyframes administracao-girar {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes administracao-subir {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes administracao-entrar {
+    from {
+        opacity: 0;
+        transform: translateY(18px) scale(0.99);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes administracao-aba-entrar {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes administracao-indicador {
+    from {
+        transform: scaleX(0.4);
+        opacity: 0.4;
+    }
+    to {
+        transform: scaleX(1);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 700px) {
+    .administracao-conteudo {
+        width: min(100% - 28px, 560px);
+        padding: 32px 0 48px;
+    }
+
+    .administracao-introducao {
+        margin-bottom: 22px;
+    }
+
+    .administracao-introducao > p {
+        font-size: 0.9rem;
+    }
+
+    .administracao-painel {
+        border-radius: 15px;
+    }
+
+    .administracao-abas {
+        gap: 4px;
+        overflow-x: auto;
+        padding: 10px 8px 0;
+        scrollbar-width: thin;
+    }
+
+    .administracao-aba {
+        min-width: max-content;
+        min-height: 54px;
+        gap: 7px;
+        padding: 0 10px;
+        font-size: 0.78rem;
+    }
+
+    .administracao-resumo-aba {
+        align-items: center;
+        flex-direction: column;
+        gap: 8px;
+        padding: 22px 20px 16px;
+    }
+
+    .administracao-resumo-aba > p {
+        text-align: center;
+        font-size: 0.86rem;
+    }
+
+    .administracao-conteudo-aba .admin-usuarios-topo,
+    .administracao-conteudo-aba .gerenciar-tipos-topo,
+    .administracao-conteudo-aba .admin-instituicoes-topo {
+        width: 100%;
+        padding: 0 14px 24px;
+    }
+
+    .administracao-conteudo-aba .admin-usuarios-conteudo {
+        grid-template-columns: 1fr;
+        width: 100%;
+        padding: 0;
+    }
+
+    .administracao-conteudo-aba .gerenciar-tipos-form-area {
+        grid-template-columns: 1fr;
+        gap: 6px;
+        margin-top: 0;
+    }
+
+    .administracao-conteudo-aba .admin-instituicoes-form-area {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        min-height: auto;
+    }
+
+    .administracao-conteudo-aba .admin-instituicoes-form-area > img {
+        height: 140px;
+    }
+
+    .administracao-conteudo-aba .gerenciar-tipos-form-area > img {
+        height: 130px;
+    }
+
+    .administracao-conteudo-aba .admin-usuarios-lista,
+    .administracao-conteudo-aba .gerenciar-tipos-lista,
+    .administracao-conteudo-aba .admin-instituicoes-lista {
+        min-height: 360px;
+        padding: 24px 18px 36px;
+    }
+
+    .administracao-conteudo-aba .tabela-admin th,
+    .administracao-conteudo-aba .tabela-admin td {
+        padding: 10px 12px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .administracao-pagina *,
+    .administracao-pagina *::before,
+    .administracao-pagina *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

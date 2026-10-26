@@ -16,6 +16,18 @@
 .header {
     border-bottom: 1px solid var(--cinza-claro);
     background: var(--branco);
+    animation: header-aparecer 0.35s ease both;
+}
+
+@keyframes header-aparecer {
+    from {
+        opacity: 0;
+        translate: 0 -6px;
+    }
+    to {
+        opacity: 1;
+        translate: 0 0;
+    }
 }
 
 .header-conteudo {
@@ -34,6 +46,8 @@
 
 .header nav {
     display: flex;
+    align-items: center;
+    flex-wrap: wrap;
     gap: 28px;
 }
 
@@ -51,40 +65,29 @@
     cursor: pointer;
 }
 
-.header-conta { display: flex; align-items: center; gap: 14px; }
-.header-conta span { color: var(--cor-texto); font-weight: 500; }
-.header-conta button { color: var(--vermelho); }
-
-.login-overlay {
-    position: fixed;
-    z-index: 20;
-    inset: 0;
-    display: grid;
-    place-items: center;
-    padding: 20px;
-    background: rgba(0, 0, 0, .45);
+.header-conta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
 }
-
-.login-modal {
-    position: relative;
-    display: grid;
-    gap: 10px;
-    width: min(100%, 400px);
-    padding: 32px;
-    border-radius: 10px;
-    background: white;
-    box-shadow: 0 12px 40px rgba(0, 0, 0, .2);
+.header-conta span {
+    color: var(--cor-texto);
+    font-weight: 500;
 }
-
-.login-modal h2 { margin: 0 0 8px; }
-.login-modal label { font-size: .9rem; font-weight: 500; }
-.login-modal input { width: 100%; padding: 9px 10px; border: 1px solid #bbb; border-radius: 4px; }
-.login-modal p { margin: 0; color: #a21435; font-size: .9rem; }
-.login-modal .login-fechar { position: absolute; top: 12px; right: 16px; font-size: 1.5rem; }
-.login-modal .login-submit { margin-top: 8px; padding: 10px; border-radius: 4px; color: white; background: var(--vermelho); }
-.login-modal .login-submit:disabled { opacity: .65; }
+.header-conta button {
+    color: var(--vermelho);
+}
 
 @media (max-width: 700px) {
-    .header-conteudo { flex-wrap: wrap; gap: 12px; padding: 12px 0; }
-    .header nav { order: 3; width: 100%; justify-content: space-between; gap: 12px; }
+    .header-conteudo {
+        flex-wrap: wrap;
+        gap: 12px;
+        padding: 12px 0;
+    }
+    .header nav {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        gap: 12px 18px;
+    }
 }

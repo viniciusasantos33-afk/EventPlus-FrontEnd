@@ -1,0 +1,312 @@
+.gerenciar-tipos-pagina {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    background: #fff;
+}
+
+.gerenciar-tipos-pagina > main {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+
+.gerenciar-tipos-topo {
+    width: min(1120px, calc(100% - 48px));
+    min-height: 420px;
+    margin: 0 auto;
+    padding: 42px 0 48px;
+}
+
+.gerenciar-tipos-titulo,
+.gerenciar-tipos-lista h2 {
+    width: fit-content;
+    margin: 0 auto;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.gerenciar-tipos-titulo::after,
+.gerenciar-tipos-lista h2::after {
+    display: block;
+    width: 84px;
+    height: 2px;
+    margin: 9px auto 0;
+    border-radius: 2px;
+    background: #b51b44;
+    content: "";
+}
+
+.gerenciar-tipos-form-area {
+    display: grid;
+    grid-template-columns: minmax(280px, 1fr) minmax(300px, 0.8fr);
+    align-items: center;
+    gap: 48px;
+    width: min(900px, 100%);
+    min-height: 340px;
+    margin: 16px auto 0;
+}
+
+.gerenciar-tipos-form-area > img {
+    width: 100%;
+    height: 290px;
+    object-fit: contain;
+    mix-blend-mode: multiply;
+}
+
+.gerenciar-tipos-formulario {
+    display: grid;
+    gap: 14px;
+}
+
+.gerenciar-tipos-formulario label {
+    color: #41383b;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.gerenciar-tipos-formulario input {
+    width: 100%;
+    min-height: 42px;
+    padding: 8px 2px;
+    border: 0;
+    border-bottom: 1px solid #777174;
+    border-radius: 0;
+    outline-color: #b51b44;
+    background: transparent;
+    font: inherit;
+}
+
+.gerenciar-tipos-formulario input::placeholder {
+    color: #a59da0;
+}
+
+.gerenciar-tipos-botoes-formulario {
+    display: grid;
+    gap: 9px;
+    margin-top: 8px;
+}
+
+.gerenciar-tipos-botoes-formulario button {
+    min-height: 44px;
+    border: 0;
+    border-radius: 7px;
+    background: #b51b44;
+    color: #fff;
+    font: inherit;
+    font-weight: 500;
+    cursor: pointer;
+    transition:
+        background-color 0.18s ease,
+        transform 0.18s ease;
+}
+
+.gerenciar-tipos-botoes-formulario button:hover:not(:disabled) {
+    transform: translateY(-1px);
+    background: #97183a;
+}
+
+.gerenciar-tipos-botoes-formulario button:disabled {
+    cursor: not-allowed;
+    opacity: 0.65;
+}
+
+.gerenciar-tipos-botoes-formulario .gerenciar-tipos-cancelar {
+    background: #756c70;
+}
+
+.gerenciar-tipos-erro,
+.gerenciar-tipos-mensagem {
+    margin: 0;
+    font-size: 0.85rem;
+}
+
+.gerenciar-tipos-erro {
+    color: #a31635;
+}
+
+.gerenciar-tipos-mensagem {
+    color: #23663c;
+}
+
+.gerenciar-tipos-lista {
+    flex: 1;
+    min-height: 300px;
+    padding: 38px max(24px, calc((100% - 1160px) / 2)) 64px;
+    background: #b51b44;
+    color: #fff;
+}
+
+.gerenciar-tipos-lista h2 {
+    margin-bottom: 34px;
+    font-size: 0.92rem;
+}
+
+.gerenciar-tipos-lista h2::after {
+    width: 150px;
+    height: 1px;
+    background: #fff;
+}
+
+.gerenciar-tipos-status {
+    margin: 40px auto;
+    color: #fff;
+    text-align: center;
+}
+
+.gerenciar-tipos-tabela-wrap {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.gerenciar-tipos-tabela {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.gerenciar-tipos-tabela th,
+.gerenciar-tipos-tabela td {
+    padding: 14px 18px;
+    border-bottom: 1px solid rgb(255 255 255 / 55%);
+}
+
+.gerenciar-tipos-tabela th {
+    font-weight: 600;
+}
+
+.gerenciar-tipos-tabela tbody tr {
+    animation: tipo-linha-aparecer 0.35s ease both;
+}
+
+.gerenciar-tipos-tabela tbody tr:nth-child(2) {
+    animation-delay: 0.04s;
+}
+.gerenciar-tipos-tabela tbody tr:nth-child(3) {
+    animation-delay: 0.08s;
+}
+.gerenciar-tipos-tabela tbody tr:nth-child(4) {
+    animation-delay: 0.12s;
+}
+
+@keyframes tipo-linha-aparecer {
+    from {
+        opacity: 0;
+        translate: 0 6px;
+    }
+    to {
+        opacity: 1;
+        translate: 0 0;
+    }
+}
+
+.gerenciar-tipos-tabela th:first-child,
+.gerenciar-tipos-tabela td:first-child {
+    width: 75%;
+}
+
+.gerenciar-tipos-acao {
+    display: grid;
+    width: 38px;
+    height: 38px;
+    place-items: center;
+    border: 0;
+    border-radius: 7px;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    transition:
+        background-color 0.18s ease,
+        transform 0.18s ease;
+}
+
+.gerenciar-tipos-acao:hover,
+.gerenciar-tipos-acao:focus-visible {
+    transform: translateY(-1px);
+    background: rgb(255 255 255 / 15%);
+}
+
+.gerenciar-tipos-acao svg {
+    width: 21px;
+    height: 21px;
+    fill: currentColor;
+}
+
+.gerenciar-tipos-carregando {
+    display: grid;
+    flex: 1;
+    min-height: 280px;
+    place-items: center;
+    color: #62575b;
+}
+
+@media (max-width: 700px) {
+    .gerenciar-tipos-topo {
+        width: min(100% - 32px, 500px);
+        min-height: auto;
+        padding: 32px 0;
+    }
+
+    .gerenciar-tipos-titulo {
+        font-size: 0.95rem;
+    }
+
+    .gerenciar-tipos-form-area {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        min-height: auto;
+        margin-top: 20px;
+    }
+
+    .gerenciar-tipos-form-area > img {
+        height: 170px;
+    }
+
+    .gerenciar-tipos-formulario {
+        gap: 12px;
+    }
+
+    .gerenciar-tipos-botoes-formulario button {
+        min-height: 46px;
+    }
+
+    .gerenciar-tipos-lista {
+        min-height: 420px;
+        padding: 28px 18px 48px;
+    }
+
+    .gerenciar-tipos-lista h2 {
+        margin-bottom: 74px;
+        font-size: 0.85rem;
+    }
+
+    .gerenciar-tipos-tabela th,
+    .gerenciar-tipos-tabela td {
+        padding: 12px 8px;
+    }
+
+    .gerenciar-tipos-tabela th:first-child,
+    .gerenciar-tipos-tabela td:first-child {
+        width: auto;
+    }
+
+    .gerenciar-tipos-tabela th:not(:first-child),
+    .gerenciar-tipos-tabela td:not(:first-child) {
+        text-align: center;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .gerenciar-tipos-pagina *,
+    .gerenciar-tipos-pagina *::before,
+    .gerenciar-tipos-pagina *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .gerenciar-tipos-tabela tbody tr {
+        animation-duration: 0.01ms;
+    }
+}

@@ -31,6 +31,7 @@
     align-items: center;
     flex-direction: row;
     gap: 48px;
+    animation: home-secao-aparecer 0.55s ease both;
 }
 
 .home-visao img {
@@ -60,6 +61,7 @@
     width: min(1200px, calc(100% - 48px));
     margin: 0 auto;
     padding: 64px 0;
+    animation: home-secao-aparecer 0.55s 0.08s ease both;
 }
 
 /* Título "PRÓXIMOS EVENTOS" */
@@ -76,7 +78,7 @@
 }
 
 .home-eventos h2::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: 0;
     left: 50%;
@@ -90,7 +92,10 @@
 /* Grelha de Eventos */
 .home-eventos-lista {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr)); /* minmax(0, 1fr) força as imagens a respeitar o tamanho do cartão */
+    grid-template-columns: repeat(
+        3,
+        minmax(0, 1fr)
+    ); /* minmax(0, 1fr) força as imagens a respeitar o tamanho do cartão */
     gap: 32px;
 }
 
@@ -101,6 +106,7 @@
     padding: 64px 24px;
     background-color: var(--vermelho);
     color: var(--branco);
+    animation: home-secao-aparecer 0.55s 0.14s ease both;
 }
 
 .home-contato-container {
@@ -158,4 +164,23 @@
     height: 320px;
     border-radius: 16px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes home-secao-aparecer {
+    from {
+        opacity: 0;
+        translate: 0 12px;
+    }
+    to {
+        opacity: 1;
+        translate: 0 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .home-visao,
+    .home-eventos,
+    .home-contato {
+        animation-duration: 0.01ms;
+    }
 }
