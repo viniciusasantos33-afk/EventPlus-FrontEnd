@@ -39,6 +39,10 @@ async function getErrorMessage(response: Response): Promise<string> {
     try {
         const body: unknown = JSON.parse(responseText);
 
+        if (typeof body === "string" && body.trim()) {
+            return body.trim();
+        }
+
         if (typeof body !== "object" || body === null) {
             return `A API respondeu com erro ${response.status}.`;
         }
@@ -63,11 +67,15 @@ async function getErrorMessage(response: Response): Promise<string> {
                 return message;
             }
         }
+
+        const resposta = responseText.trim();
+        if (resposta) return resposta;
     } catch {
-        // Se a API não responder JSON, não exibimos HTML ou conteúdo técnico bruto.
+        const mensagem = responseText.trim();
+        if (mensagem && !mensagem.startsWith("<")) return mensagem;
     }
 
-    return `A API respondeu com erro ${response.status}.`;
+    return `A API respondeu com erro ${response.status} sem informar o motivo.`;
 }
 
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
